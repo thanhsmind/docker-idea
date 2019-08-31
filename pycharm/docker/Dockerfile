@@ -21,7 +21,7 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*  \ 
     && echo 'Creating notroot user and group from host' \
     && groupadd -g ${HOST_USER_GID}  ${HOST_GROUP_NAME} \
-    && useradd  -u ${HOST_USER_UID} -g ${HOST_USER_GID} -m -d /home/ide  ${HOST_USER_NAME}
+    && useradd  -u ${HOST_USER_UID} -g ${HOST_USER_GID} -m -d /home/${HOST_USER_NAME}  ${HOST_USER_NAME}
 
 
 RUN mkdir -p /opt/idea \
@@ -32,4 +32,5 @@ USER idea
 VOLUME /home/idea
 VOLUME /workspace
 
+WORKDIR /workspace
 ENTRYPOINT ["/opt/idea/bin/pycharm.sh"]
