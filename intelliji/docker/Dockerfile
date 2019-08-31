@@ -13,7 +13,7 @@ RUN apt update \
     && apt install -y --no-install-recommends \
         curl tar \
         # IntelliJ requirements
-        libxext-dev libxrender-dev libxtst-dev libxi-dev \
+        libxext-dev libxrender-dev libxtst-dev libxi-dev libfreetype6-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/idea \

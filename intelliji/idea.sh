@@ -17,7 +17,7 @@ if [ ! -d "/home/${USER}/.IntelliJIdea2018.3.1" ]; then
 fi
 
 docker run --rm \
-    --name phpstorm \
+    --name intellij-idea-2018-3-1 \
     -a stdout \
     -a stderr \
     -e DISPLAY \
@@ -26,4 +26,4 @@ docker run --rm \
     -v $XSOCK:$XSOCK:rw \
     -v ~/.IntelliJIdea2018.3.1:/home/idea/.IntelliJIdea2018.3.1 \
     -v ${WORKSPACE}:/workspace \
-    xylphid/idea:2018.3.1 # args
+    thanhsmind/idea:2018.3.1 # args
