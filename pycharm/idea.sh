@@ -3,7 +3,7 @@
 DOCKER_IMAGE=thanhsmind/pycharm2019.2.1
 IDEA_VERSION=PyCharm2019.2.1
 # Configure workspace root dir
-WORKSPACE=/opt/git
+WORKSPACE=/home/apage/projects
 
 # Configure X-Authority
 XSOCK=/tmp/.X11-unix
@@ -22,11 +22,12 @@ docker run --rm \
     --name ${IDEA_VERSION} \
     -a stdout \
     -a stderr \
-    -e DISPLAY \
+    -e DISPLAY=${DISPLAY} \
     -e XAUTHORITY=${XAUTH} \
     -v ${XAUTH}:${XAUTH}:rw \
     -v $XSOCK:$XSOCK:rw \
     -v ${WORKSPACE}:/workspace \
+    -v ~/:/home/idea \
     ${DOCKER_IMAGE} # args
 
 # -v ~/.${IDEA_VERSION}:/home/idea/.${IDEA_VERSION} \
